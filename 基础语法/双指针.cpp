@@ -30,8 +30,10 @@ void lanqiao1371(){
 
 
 /*
+----------------------------------------
 蓝桥1372
 美丽的区间
+----------------------------------------
 */
 void lanqiao1372(){
     const int N = 1e5 + 10;
@@ -67,10 +69,47 @@ void lanqiao1372(){
 
 }
 
+/* 
+----------------------------------------
+蓝桥1621
+挑选子串
+----------------------------------------
+*/
+void lanqiao1621(){
+    const int N = 1e5 + 10;
+    int a[N];
 
+    int n,m,k;
+    cin >> n >> m >> k;
+
+    for(int i = 0 ; i < n ; i++){
+        cin >> a[i];
+    }
+
+    int l = 0;
+    int cnt = 0;
+    long long ans = 0;
+
+    for(int r = 0 ; r < n ; r++){
+
+        if(a[r] >= m) cnt++;
+
+        while(cnt >= k){
+
+            // 以 l 为起点，r 及以后都合法
+            ans += n - r;
+
+            if(a[l] >= m) cnt--;
+            l++;
+        }
+    }
+
+    cout << ans << endl;
+}
 
 
 int main(){
   lanqiao1371();
   lanqiao1372();
+  lanqiao1621();
 }
